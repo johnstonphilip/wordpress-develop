@@ -23,6 +23,10 @@
  */
 function render_block_core_comments( $attributes, $content, $block ) {
 	global $post;
+	
+	if ( ! isset( $block->context['postId'] ) ) {
+		return '';
+	}
 
 	$post_id = $block->context['postId'];
 	if ( ! isset( $post_id ) ) {
